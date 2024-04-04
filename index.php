@@ -25,9 +25,27 @@ class Movie {
 
     }
 
-
+    
+    /**
+     * tenYears se il film è uscito da più di 10 anni ritorna: "Questo film è uscito da parecchi anni"
+     * se è uscito da meno di 10 ma più di 0 ritorna : "Questo film è uscito da pochi anni"
+     * se è uscito lo stesso anno ritorna: "Questo film è uscito quest'anno"
+     * altrimenti ritorna : "L'anno di uscita inserito non è corretto"
+     *
+     * @return void
+     */
     public function tenYears(){
-        
+        $currentYear = date("Y");
+        $yearsPassed = $currentYear - $this->year;
+        if($yearsPassed >= 10){
+            return "Questo film è uscito da parecchi anni";
+        } elseif ($yearsPassed > 0 && $yearsPassed < 10){
+            return "Questo film è uscito da pochi anni";
+        } elseif ($yearsPassed == 0){
+            return "Questo film è uscito quest'anno";
+        } else {
+            return "L'anno di uscita inserito non è corretto";
+        }
     }
 
 };
@@ -37,10 +55,20 @@ $movies = [
     new Movie("Bob Marley: One Love", 2024, "Reinaldo Marcus Green"),
     new Movie("The Beekeeper", 2024, "David Ayer"),
     new Movie("Spirit - Cavallo selvaggio", 2002, "Lorna Cook"),
-    new Movie("Dragon Trainer", 2010, "Chris Sanders")
+    new Movie("Dragon Trainer", 2010, "Chris Sanders"),
+    new Movie("Dragon Trainer - Il mondo nascosto", 2019, "Dean DeBlois")
 ];
 
-var_dump($movies)
+var_dump($movies);
+
+
+foreach ($movies as $movie) {
+    echo "Titolo: " . $movie->title . "\n";
+    echo "Anno: " . $movie->year . "\n";
+    echo "Regista: " . $movie->director . "\n";
+    echo $movie->tenYears() . "\n\n";
+    echo "<br>";
+}
 
 ?>
 
