@@ -10,7 +10,14 @@ class Movie {
     public $director;
     public $genre;
     
-    // definisco un construttore
+    // definisco un construttore    
+    /**
+     * __construct
+     *
+     * @param  string $_title
+     * @param  int $_year
+     * @param  string $_director
+     */
     function __construct($_title, $_year, $_director) {
         $this -> title = $_title;
         $this -> year = $_year;
@@ -18,7 +25,22 @@ class Movie {
 
     }
 
-}
+
+    public function tenYears(){
+        
+    }
+
+};
+
+$movies = [
+    new Movie("Kung Fu Panda 4", 2024, "Mike Mitchell"),
+    new Movie("Bob Marley: One Love", 2024, "Reinaldo Marcus Green"),
+    new Movie("The Beekeeper", 2024, "David Ayer"),
+    new Movie("Spirit - Cavallo selvaggio", 2002, "Lorna Cook"),
+    new Movie("Dragon Trainer", 2010, "Chris Sanders")
+];
+
+var_dump($movies)
 
 ?>
 
